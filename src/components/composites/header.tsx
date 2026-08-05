@@ -5,12 +5,13 @@ import {ArrowRight} from "lucide-react";
 export default function Header() {
     return (
 
-        <header className="relative z-10 flex items-center justify-between px-6 py-5 md:px-10">
+        <header className="fixed top-0 left-0 right-0 h-[var(--header-height)] flex items-center h-100 justify-between
+ px-6 md:px-10  z-100">
             <Link
                 to="/"
                 className="font-heading text-lg font-semibold tracking-tight text-foreground"
             >
-                Portfolio
+                Tobiasras
             </Link>
             <nav className="flex items-center gap-2">
                 <Button variant="ghost" size="sm" render={<a href="#work"/>}>

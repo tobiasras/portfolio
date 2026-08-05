@@ -1,31 +1,20 @@
 import {Button} from '@/components/ui/button'
 import {Badge} from '@/components/ui/badge'
-
-
-import {ArrowRight, Box, Layers, Palette} from 'lucide-react'
+import {ArrowRight, Box, ChartNetwork, Layers, Palette} from 'lucide-react'
 import {motion} from 'framer-motion'
-import {
-    Card,
-    CardAction,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle
-} from "@/components/ui/card.tsx";
+import {ProjectCard} from "@/components/composites/project-card.tsx";
+import {Separator} from '@/components/ui/separator'
+import {MinorCard} from "@/components/composites/minor-card.tsx";
+import {AsciiArt} from "@/util/ascii-art"
 
 const stack = [
-    {icon: Box, label: 'Three.js + R3F'},
-    {icon: Layers, label: 'shadcn/ui'},
-    {icon: Palette, label: 'Tailwind CSS'},
+    {icon: Box, label: 'Software engineering'},
+    {icon: ChartNetwork, label: 'Machine learning'},
 ]
 
 export function Home() {
     return (
-
-
-        <main className="relative min-h-svh overflow-hidden">
-
+        <main className="relative min-h-svh overflow-hidden pt-5 mt-[var(--header-height)]">
             <section className="relative z-10 grid  gap-8 px-6 pb-16  md:px-10 md:pb-10">
                 <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
 
@@ -40,30 +29,21 @@ export function Home() {
                         </Badge>
                         <h1 className="font-heading text-4xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-6xl">
                             Tobias Juul Rasmussen
-
                         </h1>
                         <p className="max-w-md text-base text-muted-foreground md:text-lg">
-                            Based in Copenhagen,
+                            Based in Copenhagen. Interrested in solving challengine problems and exploration in software
+                            and machinelaering. i love to create and innovate
                         </p>
-                        <div className="flex flex-wrap gap-3">
-                            <Button size="lg" render={<a href="#work"/>}>
-                                View stack
-                                <ArrowRight className="size-4"/>
-                            </Button>
-                            <Button
-                                size="lg"
-                                variant="outline"
-                                render={
-                                    <a
-                                        href="https://ui.shadcn.com"
-                                        target="_blank"
-                                        rel="noreferrer"
-                                    />
-                                }
-                            >
-                                shadcn docs
-                            </Button>
-                        </div>
+                        <p className="max-w-md text-base text-muted-foreground md:text-lg">
+                            This website is collection of projects i have created.
+                        </p>
+
+                        <ul>
+                            <li className="bullet">asdasjdkl</li>
+                            <li>asdasjdkl</li>
+                        </ul>
+
+
 
                         <ul id="work" className="mt-4 flex flex-wrap gap-4">
                             {stack.map(({icon: Icon, label}) => (
@@ -82,123 +62,38 @@ export function Home() {
 
 
             <section className="md:px-10 md:pb-10">
-                <div className="mx-auto max-w-7xl px-6 md:px-10 grid grid-cols-3 gap-4">
-                    <Card className="relative mx-auto w-full max-w-sm pt-0">
-                        <div className="absolute inset-0 z-30 aspect-video bg-black/35"/>
-                        <img
-                            src="https://avatar.vercel.sh/shadcn1"
-                            alt="Event cover"
-                            className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale dark:brightness-40"
-                        />
-                        <CardHeader>
-                            <CardTitle>Design systems meetup</CardTitle>
-                            <CardAction>
-
-                                <Badge variant="secondary">Featured</Badge>
-                                <Badge variant="secondary">Featured</Badge>
-
-                                <Badge variant="secondary">Featured</Badge>
-                            </CardAction>
-                        </CardHeader>
-                        <CardContent>
-                            <CardDescription>
-                                A practical talk on component APIs, accessibility, and shipping
-                                faster.
-                            </CardDescription>
-                        </CardContent>
-                        <CardFooter>
-                            <Button className="w-full">View Event</Button>
-                        </CardFooter>
-                    </Card>
-
-                    <Card className="relative mx-auto w-full max-w-sm pt-0">
-                        <div className="absolute inset-0 z-30 aspect-video bg-black/35"/>
-                        <img
-                            src="https://avatar.vercel.sh/shadcn1"
-                            alt="Event cover"
-                            className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale dark:brightness-40"
-                        />
-                        <CardHeader>
-                            <CardTitle>Design systems meetup</CardTitle>
-                            <CardAction>
-
-                                <Badge variant="secondary">Featured</Badge>
-                                <Badge variant="secondary">Featured</Badge>
-
-                                <Badge variant="secondary">Featured</Badge>
-                            </CardAction>
-                        </CardHeader>
-                        <CardContent>
-                            <CardDescription>
-                                A practical talk on component APIs, accessibility, and shipping
-                                faster.
-                            </CardDescription>
-                        </CardContent>
-                        <CardFooter>
-                            <Button className="w-full">View Event</Button>
-                        </CardFooter>
-                    </Card>
-
-                    <Card className="relative mx-auto w-full max-w-sm pt-0">
-                        <div className="absolute inset-0 z-30 aspect-video bg-black/35"/>
-                        <img
-                            src="https://avatar.vercel.sh/shadcn1"
-                            alt="Event cover"
-                            className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale dark:brightness-40"
-                        />
-                        <CardHeader>
-                            <CardTitle>Design systems meetup</CardTitle>
-                            <CardAction>
-
-                                <Badge variant="secondary">Featured</Badge>
-                                <Badge variant="secondary">Featured</Badge>
-
-                                <Badge variant="secondary">Featured</Badge>
-                            </CardAction>
-                        </CardHeader>
-                        <CardContent>
-                            <CardDescription>
-                                A practical talk on component APIs, accessibility, and shipping
-                                faster.
-                            </CardDescription>
-                        </CardContent>
-                        <CardFooter>
-                            <Button className="w-full">View Event</Button>
-                        </CardFooter>
-                    </Card>
-
-                    <Card className="relative mx-auto w-full max-w-sm pt-0">
-                        <div className="absolute inset-0 z-30 aspect-video bg-black/35"/>
-                        <img
-                            src="https://avatar.vercel.sh/shadcn1"
-                            alt="Event cover"
-                            className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale dark:brightness-40"
-                        />
-                        <CardHeader>
-                            <CardTitle>Price estimator</CardTitle>
-                            <div className="flex flex-wrap gap-2">
-                                <Badge variant="secondary">Secondary</Badge>
-                                <Badge variant="secondary">Secondary</Badge>
-                                <Badge variant="secondary">Secondary</Badge>
-                                <Badge variant="secondary">Secondary</Badge>
-                            </div>
-                        </CardHeader>
-                        <CardContent className="">
-                            <CardDescription>
-                                A practical talk on component APIs, accessibility, and shipping
-                                faster.
-                            </CardDescription>
-                        </CardContent>
-                        <CardFooter>
-                            <Button className="w-full">View Event</Button>
-                        </CardFooter>
-                    </Card>
-
-
+                <div className="mx-auto md:px-12 max-w-7xl px-6 mb-5">
+                    <h2 className="">Projects:</h2>
                 </div>
+
+                <div className="mx-auto max-w-7xl px-6 md:px-10 grid lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-4">
+                    <ProjectCard/>
+                    <ProjectCard/>
+                    <ProjectCard />
+                    <ProjectCard />
+                    <ProjectCard />
+                    <ProjectCard />
+                    <ProjectCard />
+                </div>
+
+                <Separator className="my-10 bg-gray-300" />
+
+                <div className="mx-auto max-w-7xl px-6 md:px-10 grid lg:grid-cols-4  md:grid-cols-3 sm:grid-cols-1 gap-4 ">
+                    <MinorCard href="https://lab.tobiasras.dk/creative/005" image="public/images/shader_005.png" title={"NBody problem 3D"} />
+                    <MinorCard href="https://lab.tobiasras.dk/projects/cubed_chess" image="public/images/cubed_chess.png" title={"Game - Chess on cube"} />
+                    <MinorCard href="https://lab.tobiasras.dk/creative/004" image="public/images/shader_004.png" title={"Interactive NBody problem"} />
+                    <MinorCard href="https://lab.tobiasras.dk/creative/003" image="public/images/shader_003.png" title={"NBody problem 2D"} />
+                    <MinorCard href="https://lab.tobiasras.dk/creative/002" image="public/images/shader_002.png" title={"NBody problem 2D with shader"} />
+                    <MinorCard href="https://lab.tobiasras.dk/creative/001" image="public/images/shader_001.png" title={"GLSL Shader"} />
+                    <MinorCard href="https://lab.tobiasras.dk/projects/yukon_web/" title="Yukon Solitaire" description="In ASCII-style" ascii={AsciiArt["yukon"]}/>
+                    <MinorCard href="https://lab.tobiasras.dk/projects/yukon_web/" title="Yukon Solitaire" description="In ASCII-style" ascii={AsciiArt["yukon"]}/>
+                </div>
+
+
+
+
+
             </section>
-
-
         </main>
     )
 }
