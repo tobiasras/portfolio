@@ -1,8 +1,3 @@
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card.tsx";
-import {Badge} from "@/components/ui/badge.tsx";
-import {Button} from "@/components/ui/button.tsx";
-
-
 interface MinorCardProps {
     title: string;
     description?: string;
@@ -23,7 +18,8 @@ export function MinorCard({
     return (
         <a
             href={href}
-            className={`group relative block overflow-hidden rounded-lg ${className}`}
+            data-particle-layer
+            className={`group relative block overflow-hidden rounded-lg bg-background ${className}`}
         >
             {ascii ? (
                 <pre

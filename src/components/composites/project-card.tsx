@@ -1,40 +1,74 @@
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card.tsx";
 import {Badge} from "@/components/ui/badge.tsx";
 import {Button} from "@/components/ui/button.tsx";
+import type { ReactNode } from "react";
 
 
-export function ProjectCard() {
+type ProjectCardProps = {
+    title: string;
+    category: string;
+    image: string;
+    url?: string;
+    sourceUrl?: string;
+    badges?: string[];
+    children?: ReactNode;
+};
+
+export function ProjectCard({
+                                title,
+                                category,
+                                image,
+                                url,
+                                sourceUrl,
+                                badges = [],
+                                children,
+                            }: ProjectCardProps) {
     return (
-        <Card className="relative mx-auto w-full max-w-sm pt-0">
-            <div className="absolute inset-0 z-30 aspect-video bg-black/35"/>
+        <Card data-particle-layer className="relative mx-auto w-full max-w-sm pt-0">
+            <div className="absolute inset-0 z-30 aspect-video " />
             <img
-                src="https://avatar.vercel.sh/shadcn1"
-                alt="Event cover"
-                className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale dark:brightness-40"
+                src={image}
+                alt={title}
+                className="relative z-20 aspect-video w-full object-cover"
             />
             <CardHeader>
-                <CardTitle>Price estimator</CardTitle>
+                <CardTitle>{title}</CardTitle>
             </CardHeader>
-            <CardContent className="">
+
+            <CardContent>
                 <CardDescription>
-                    <b>Machine learning</b>
+                    <b>{category}</b>
                 </CardDescription>
 
                 <CardDescription className="mt-3">
-                    A practical talk on component APIs, accessibility, and shipping
-                    faster.
+                    {children}
                 </CardDescription>
 
-                <div className="flex flex-wrap gap-2 mt-3">
-                    <Badge variant="secondary">Secondary</Badge>
-                    <Badge variant="secondary">Secondary</Badge>
-                    <Badge variant="secondary">Secondary</Badge>
-                </div>
+                {badges.length > 0 && (
+                    <div className="mt-3 flex flex-wrap gap-2">
+                        {badges.map((badge) => (
+                            <Badge key={badge} variant="secondary">
+                                {badge}
+                            </Badge>
+                        ))}
+                    </div>
+                )}
             </CardContent>
 
             <CardFooter className="gap-1">
-                <Button className="">Open demo</Button>
-                <Button variant="outline" className="">Source</Button>
+                {url && (
+                    <a href={url} target="_blank" rel="noopener noreferrer">
+                        <Button>Open</Button>
+                    </a>
+                )}
+
+                {sourceUrl && (
+                    <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
+                        <Button variant="outline" >
+                            Source
+                        </Button>
+                    </a>
+                )}
             </CardFooter>
         </Card>
     )
