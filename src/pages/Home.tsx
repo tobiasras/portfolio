@@ -119,9 +119,14 @@ export function Home() {
                     <ProjectCard image="/images/zero_shot_anomaly_detection.png" title="Zero shot anomaly detection"
                                  badges={["Image vision", "DinoV3", "Python"]} sourceUrl="https://github.com/tobiasras/Zero-Shot-Anomaly-Detection"
                                  category="Anomaly detection on product images" team={["Mioupytjh", "nico386d"]}>
-                        <p> Developed a zero-shot anomaly detection pipeline using the DINOv3 vision foundation model on the MVTec Anomaly Detection dataset. The system extracts patch-level image embeddings from defect-free reference images and detects anomalies by comparing test samples using different distance metrics. </p>
+                        <p> Developed a zero-shot anomaly detection pipeline using the DINOv3 vision foundation model on
+                            the MVTec Anomaly Detection dataset. </p>
 
-                        <p className="pt-1"> Improved anomaly detection performance by applying a Mahalanobis distance approach, achieving strong results without supervised training or defect samples.</p>
+                        <p className="pt-1">The system extracts patch-level image embeddings from
+                            defect-free reference images and detects anomalies by comparing test samples using different distance metrics. </p>
+
+                        <p className="pt-1"> Improved anomaly detection performance by applying a Mahalanobis distance approach,
+                            achieving strong results without supervised training or defect samples.</p>
                     </ProjectCard>
                 </Container>
             </section>

@@ -3,7 +3,7 @@ import vertSource from '@/assets/shaders/creative-002/shader.vert?raw'
 import fragSource from '@/assets/shaders/creative-002/shader.frag?raw'
 
 const ORB_COUNT = 15
-const SOFTENING = 0.012
+const SOFTENING = 0.2
 const CENTER_STRENGTH = 5
 
 const CLICK_EXPLOSION_FORCE = 10
