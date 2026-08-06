@@ -5,7 +5,7 @@ import {Container} from "@/components/layout/container.tsx";
 
 export default function Header() {
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 h-[var(--header-height)] bg-background/70 backdrop-blur-sm">
+        <header className="fixed top-0 left-0 right-0 z-50 h-[var(--header-height)] bg-white">
             <Container className="flex h-full items-center justify-between">
                 <Link
                     to="/"

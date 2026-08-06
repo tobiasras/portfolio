@@ -37,7 +37,7 @@ export function Timeline({ items, className }: TimelineProps) {
             <span className="absolute -start-[1.9375rem] mt-1.5 size-3 rounded-full border-2 border-background bg-foreground" />
           )}
           <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-            <h3 className="font-medium text-foreground">{item.title}</h3>
+            <h3 className="font-medium text-foreground font-sans">{item.title}</h3>
             <span className="text-muted-foreground">· {item.org}</span>
           </div>
           <p className="mt-1 text-sm text-muted-foreground">
