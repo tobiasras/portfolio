@@ -3,7 +3,7 @@ import vertSource from '@/assets/shaders/creative-002/shader.vert?raw'
 import fragSource from '@/assets/shaders/creative-002/shader.frag?raw'
 
 const ORB_COUNT = 15
-const SOFTENING = 0.002
+const SOFTENING = 0.012
 const CENTER_STRENGTH = 5
 
 const CLICK_EXPLOSION_FORCE = 10
@@ -84,10 +84,10 @@ function computeForce(orbs: Orb[], gravity: number, centerStrength: number) {
         for (let j = i + 1; j < orbs.length; j++) {
             const dx = orbs[j].x - orbs[i].x
             const dy = orbs[j].y - orbs[i].y
-            const r2 = dx * dx + dy * dy + SOFTENING
+            const r2 = dx * dx + dy * dy
             const r = Math.sqrt(r2)
 
-            const f = (gravity * orbs[i].mass * orbs[j].mass) / r2
+            const f = (gravity * orbs[i].mass * orbs[j].mass) / (r2 + SOFTENING)
             const fx = (f * dx) / r
             const fy = (f * dy) / r
 
