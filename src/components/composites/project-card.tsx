@@ -24,15 +24,15 @@ export function ProjectCard({
                                 children,
                             }: ProjectCardProps) {
     return (
-        <Card data-particle-layer className="relative mx-auto w-full max-w-sm pt-0">
-            <div className="absolute inset-0 z-30 aspect-video " />
+        <Card data-particle-layer className="relative mx-auto w-full max-w-sm pt-0 gap-3">
+            <div className="absolute inset-0 z-30 aspect-video" />
             <img
                 src={image}
                 alt={title}
                 className="relative z-20 aspect-video w-full object-cover"
             />
             <CardHeader>
-                <CardTitle>{title}</CardTitle>
+                <CardTitle className="pt-1">{title}</CardTitle>
             </CardHeader>
 
             <CardContent>

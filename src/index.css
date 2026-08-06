@@ -1,7 +1,19 @@
 @import "tailwindcss";
+@import "./typeset.css";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
+@import "@fontsource/noto-sans/latin.css";
+@import "@fontsource/jetbrains-mono/latin.css";
+
+.typeset-docs {
+  --typeset-font-body: var(--font-noto-sans);
+  --typeset-font-heading: var(--font-jetbrains-mono);
+  --typeset-font-mono: var(--font-jetbrains-mono);
+  --typeset-size: 14px;
+  --typeset-leading: 1.75;
+  --typeset-flow: 1.25em;
+}
 
 :root {
     --header-height: 3rem
@@ -10,7 +22,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-    --font-heading: var(--font-sans);
+    --font-heading: var(--font-jetbrains-mono);
+    --font-mono: var(--font-jetbrains-mono);
     --font-sans: 'Geist Variable', sans-serif;
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
@@ -125,10 +138,15 @@
   * {
     @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-transparent text-foreground;
-    }
   html {
-    @apply font-sans;
+    @apply font-sans bg-white;
+    --font-noto-sans: "Noto Sans", sans-serif;
+    --font-jetbrains-mono: "JetBrains Mono", monospace;
+    }
+  body {
+    @apply bg-white text-foreground;
+    }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
     }
 }
