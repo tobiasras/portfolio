@@ -3,11 +3,10 @@ import vertSource from '@/assets/shaders/creative-002/shader.vert?raw'
 import fragSource from '@/assets/shaders/creative-002/shader.frag?raw'
 
 const ORB_COUNT = 15
-const SOFTENING = 0.002
+const SOFTENING = 0.012
+const CENTER_STRENGTH = 5
 
-/** Impulse strength applied to orbs on click. Increase for a stronger explosion. */
 const CLICK_EXPLOSION_FORCE = 10
-/** How quickly the blast fades with distance from the click. Higher = more localized. */
 const CLICK_EXPLOSION_FALLOFF = 2.5
 
 type Orb = {
@@ -85,10 +84,10 @@ function computeForce(orbs: Orb[], gravity: number, centerStrength: number) {
         for (let j = i + 1; j < orbs.length; j++) {
             const dx = orbs[j].x - orbs[i].x
             const dy = orbs[j].y - orbs[i].y
-            const r2 = dx * dx + dy * dy + SOFTENING
+            const r2 = dx * dx + dy * dy
             const r = Math.sqrt(r2)
 
-            const f = (gravity * orbs[i].mass * orbs[j].mass) / r2
+            const f = (gravity * orbs[i].mass * orbs[j].mass) / (r2 + SOFTENING)
             const fx = (f * dx) / r
             const fy = (f * dy) / r
 
@@ -182,7 +181,7 @@ export function NBodyShader002() {
 
         const orbs = initOrbs()
         const gravity = 10
-        const centerStrength = 2.800
+        const centerStrength = CENTER_STRENGTH
 
         let width = 0
         let height = 0
@@ -258,7 +257,7 @@ export function NBodyShader002() {
     return (
         <canvas
             ref={canvasRef}
-            className="block h-full w-full cursor-pointer bg-white"
+            className="block h-full w-full bg-white"
             aria-hidden
         />
     )
