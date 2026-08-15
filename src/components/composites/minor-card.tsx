@@ -7,6 +7,14 @@ interface MinorCardProps {
     className?: string;
 }
 
+/*
+* Used for displaying minor projects with only images and hovarable text
+*
+*/
+
+
+
+
 export function MinorCard({
                               title,
                               description,

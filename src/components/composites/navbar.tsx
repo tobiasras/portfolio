@@ -7,10 +7,11 @@ const socialLinks = [
     {href: "https://www.instagram.com/tobiasras/", label: "Instagram", icon: "/images/icons/instagram.svg"},
 ] as const;
 
-export default function Header() {
+export default function Navbar() {
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 h-[var(--header-height)] bg-white">
+        <header className="fixed top-0 left-0 right-0 z-50 h-[var(--header-height)] ">
             <Container className="flex h-full items-center justify-between">
+
                 <Link
                     to="/"
                     className="font-heading text-lg font-semibold tracking-tight text-foreground"

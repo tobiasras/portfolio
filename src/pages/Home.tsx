@@ -10,6 +10,8 @@ import {AsciiArt} from "@/util/ascii-art"
 import {NBodyShader002} from '@/components/creative/nbody-shader-002'
 
 import {education, workExperience} from "@/data/timeline"
+import {Lead} from "@/components/ui/lead.tsx"
+import {H1, H2} from "@/components/ui/heading.tsx"
 
 const stack = [
     {icon: Box, label: 'Software engineering'},
@@ -20,8 +22,7 @@ export function Home() {
     return (
         <main className="min-h-svh overflow-x-hidden bg-white mt-[var(--header-height)] lg:pt-2">
             <section className="pb-10 md:pb-12">
-                <Container
-                    className="flex flex-col gap-4 pb-6 pt-4 lg:grid lg:grid-cols-4 lg:items-start lg:gap-10 lg:py-8 ">
+                <Container className="flex flex-col gap-4 pb-6 pt-4 lg:grid lg:grid-cols-4 lg:items-start lg:gap-10 lg:py-8 ">
                     <motion.div
                         data-particle-layer
                         className="relative z-10 flex flex-col col-span-3 gap-6"
@@ -32,39 +33,36 @@ export function Home() {
                         <Badge variant="secondary" className="w-fit">
                             Student at DTU · Human-Centered Artificial Intelligence MSc
                         </Badge>
-                        <h1 className="font-heading text-4xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-                            Tobias Juul Rasmussen
-                        </h1>
 
-                        <p className="max-w-lg text-base text-muted-foreground md:text-lg">
+                        <H1>
+                            Tobias Juul Rasmussen
+                        </H1>
+
+                        <Lead>
                             Based in Copenhagen, I am passionate about solving challenging problems and exploring the
                             fields of software development and machine learning.
-                        </p>
-
-
-                        <p className="max-w-lg text-base text-muted-foreground md:text-lg">
+                        </Lead>
+                        <Lead>
                             I enjoy building innovative solutions,
                             experimenting with new technologies, and turning ideas into practical applications.
-                        </p>
-
-                        <p className="max-w-lg text-base text-muted-foreground md:text-lg">
-
+                        </Lead>
+                        <Lead>
                             This website is a collection of projects I have created, showcasing my work, technical
                             interests, and continuous exploration of software and artificial intelligence.
-                        </p>
+                        </Lead>
 
 
-                            <ul id="work" className="mt-4 flex flex-wrap gap-4">
-                                {stack.map(({icon: Icon, label}) => (
-                                    <li
-                                        key={label}
-                                        className="flex items-center gap-2 text-sm text-muted-foreground"
-                                    >
-                                        <Icon className="size-4 text-foreground"/>
-                                        {label}
-                                    </li>
-                                ))}
-                            </ul>
+                        <ul id="work" className="mt-4 flex flex-wrap gap-4">
+                            {stack.map(({icon: Icon, label}) => (
+                                <li
+                                    key={label}
+                                    className="flex items-center gap-2 text-sm text-muted-foreground"
+                                >
+                                    <Icon className="size-4 text-foreground"/>
+                                    {label}
+                                </li>
+                            ))}
+                        </ul>
                     </motion.div>
 
                     <div
@@ -79,7 +77,7 @@ export function Home() {
 
             <section className="relative z-10 bg-white pb-10">
                 <Container className="mb-5">
-                    <h2>Projects:</h2>
+                    <H2>Projects:</H2>
                 </Container>
 
                 <Container className="grid items-start gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -135,7 +133,7 @@ export function Home() {
                 <Separator className="my-10"/>
 
                 <Container className="mb-5">
-                    <h2>Minor experiments & games:</h2>
+                    <H2>Minor experiments & games:</H2>
                 </Container>
 
                 <Container className="grid gap-4 md:grid-cols-3 lg:grid-cols-4">
@@ -159,16 +157,16 @@ export function Home() {
 
                 <Container className="grid gap-12 md:grid-cols-2">
                     <section id="experience" className="space-y-6 p-4 md:p-6">
-                        <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground">
+                        <H2>
                             Experience
-                        </h2>
+                        </H2>
                         <Timeline items={workExperience}/>
                     </section>
 
                     <section id="education" className="space-y-6 p-4 md:p-6">
-                        <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground">
+                        <H2>
                             Education
-                        </h2>
+                        </H2>
                         <Timeline items={education}/>
                     </section>
                 </Container>
