@@ -84,44 +84,55 @@ export function Home() {
 
                 <Container className="grid items-start gap-4 md:grid-cols-2 lg:grid-cols-3">
                     <ProjectCard image="/images/shop_compare.png" title="Calculating Shopping Prices"
-                                 badges={["SQL", "Kotlin", "Docker", "Rest API", "Word embeddings"]}
+                                 badges={["SQL", "Kotlin", "Docker", "Rest API", "NLP"]}
                                  sourceUrl="https://github.com/tobiasras/shopping_list.git"
                                  team={["Rasmussw"]}
                                  category="Bachelor thesis">
-                        <p> Developed a cross-platform mobile application backed by a REST API that allowed users to
-                            manage shopping lists and estimate the total cost across multiple grocery stores. </p>
+                        <p>
+                            Developed a <b>Mobile app</b> that helps users estimate their grocery expenses by creating a 
+                            shopping list and comparing prices across multiple retailers. 
+                        </p>
+                        
+                        <p className='pt-1'>
+                            The app brings together 
+                            product information from different stores and uses <b>Natural language processing</b> to 
+                            match shopping list items with relevant products.
+                        </p>
 
-                        <p className="pt-1"> We integrated APIs from several grocery retailers and designed a
-                            unified data model to standardize product information across different sources.
-                        </p>
                         <p className="pt-1">
-                            To match
-                            user-entered shopping list items with products from each retailer, we leveraged word
-                            embeddings and cosine similarity for semantic matching. </p>
-                        <p className="pt-1">
-                            The project was containerized
-                            using Docker Compose, enabling a consistent development and deployment environment.
-                        </p>
+                            We used <b>Kotlin Multiplatform</b> to build the app for both <b>iOS</b> and <b>Android</b>. A Kotlin Ktor <b>REST API</b> handled
+                             user authentication and shopping lists, with <b>MySQL</b> for data storage. 
+                            A Python script fetched grocery data from retailer APIs every 24 hours, and all server-side 
+                            applications ran in <b>Docker containers.</b></p>
+
                     </ProjectCard>
 
                     <ProjectCard image="/images/dbcg.png" title="DBCG website" badges={["PHP", " SQL", "JS", "CSS"]}
                                  url="https://dbcg.dk/" category="Full stack application">
-                        <p> Redeveloped a Joomla-based CMS website into a custom PHP solution while maintaining the
-                            exact design and functionality of the original site. </p>
+                        <p>Rebuilt an existing website with a custom solution, preserving the original design 
+                            and functionality while providing greater control over its content and structure.</p>
 
-                        <p className="pt-1"> The project required a custom content management system that allowed users
-                            to create and edit pages. I developed a page editor and implemented a hierarchical page
-                            structure stored in SQL to manage page creation and organization. </p>
+                        <p className="pt-1">Developed a custom content management system (CMS) that allows users 
+                            to create, edit, and organize pages in a hierarchical structure. 
+                            Page data and relationships were stored in an SQL database.</p>
 
-                        <p className="pt-1">Users could be assigned to  specific departments, each with controlled access to a defined set of pages. </p>
+                        <p className="pt-1">Implemented role-based access control, allowing users 
+                            to be assigned to specific departments and restricting their access to relevant pages.</p>
                     </ProjectCard>
 
                     <ProjectCard image="/images/zero_shot_anomaly_detection.png" title="Zero shot anomaly detection"
                                  badges={["Image vision", "DinoV3", "Python"]} sourceUrl="https://github.com/tobiasras/Zero-Shot-Anomaly-Detection"
                                  category="Anomaly detection on product images" team={["Mioupytjh", "nico386d"]}>
-                        <p> Developed a zero-shot anomaly detection pipeline using the DINOv3 vision foundation model on the MVTec Anomaly Detection dataset. The system extracts patch-level image embeddings from defect-free reference images and detects anomalies by comparing test samples using different distance metrics. </p>
+                        <p>Developed a system that automatically identifies defects and unusual patterns in product images, 
+                            without needing examples of defective products to learn from.</p>
 
-                        <p className="pt-1"> Improved anomaly detection performance by applying a Mahalanobis distance approach, achieving strong results without supervised training or defect samples.</p>
+                        <p className="pt-1">Built the solution using the DINOv3 vision foundation model 
+                            and the MVTec Anomaly Detection dataset. The system compares image features 
+                            from defect-free reference images with test images to identify potential anomalies.</p>
+
+                        <p className="pt-1">Improved detection performance by applying Mahalanobis distance 
+                            to patch-level image embeddings, enabling zero-shot anomaly detection without 
+                            supervised training or defect samples.</p>
                     </ProjectCard>
                 </Container>
             </section>

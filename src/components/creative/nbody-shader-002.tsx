@@ -3,11 +3,14 @@ import vertSource from '@/assets/shaders/creative-002/shader.vert?raw'
 import fragSource from '@/assets/shaders/creative-002/shader.frag?raw'
 
 const ORB_COUNT = 15
-const SOFTENING = 0.012
+const SOFTENING = 0.20
 const CENTER_STRENGTH = 5
 
 const CLICK_EXPLOSION_FORCE = 10
 const CLICK_EXPLOSION_FALLOFF = 2.5
+// A hidden tab or a stalled frame can deliver a multi-second gap. One Euler
+// step that long adds energy to the center spring, and the orbs stay fast.
+const MAX_FRAME_MS = 100
 
 type Orb = {
     x: number
@@ -86,6 +89,7 @@ function computeForce(orbs: Orb[], gravity: number, centerStrength: number) {
             const dy = orbs[j].y - orbs[i].y
             const r2 = dx * dx + dy * dy
             const r = Math.sqrt(r2)
+            if (r === 0) continue
 
             const f = (gravity * orbs[i].mass * orbs[j].mass) / (r2 + SOFTENING)
             const fx = (f * dx) / r
@@ -180,7 +184,7 @@ export function NBodyShader002() {
         )
 
         const orbs = initOrbs()
-        const gravity = 10
+        const gravity = 0.9
         const centerStrength = CENTER_STRENGTH
 
         let width = 0
@@ -219,7 +223,7 @@ export function NBodyShader002() {
         canvas.addEventListener('click', onClick)
 
         const draw = (now: number) => {
-            const deltaMs = now - lastTime
+            const deltaMs = Math.min(Math.max(now - lastTime, 0), MAX_FRAME_MS)
             lastTime = now
             const dt = deltaMs / 100_000
 
