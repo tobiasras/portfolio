@@ -1,0 +1,33 @@
+---
+description: Portfolio production server, deploy user, and SSH key
+alwaysApply: true
+---
+
+# Deploy server
+
+Hetzner box `ubuntu-4gb-fsn1-1`. The deploy user, key, and directory already work. Do not recreate them.
+
+- Host: `2.28.28.28` (public IP used for SSH; confirm if the box address changes)
+- SSH user: `deploy` (uid 1000, home `/home/deploy`, password locked, shell `/bin/bash`)
+- CI key comment: `ci-deploy` (ed25519)
+- Fingerprint: `SHA256:oT9DnaYJrzru+mlyXQ6WOY08ekTt3SnoH5hdC5lmLq0`
+- Public key is in `/home/deploy/.ssh/authorized_keys` (mode 600, owner deploy)
+- Private key was generated on the server at `/root/ci-deploy`. It belongs in the `SSH_PRIVATE_KEY` GitHub secret, then should be removed from the server. It is not `~/.ssh/id_ed25519` on the Mac.
+- Deploy path: `/srv/portfolio` (owner deploy:deploy, mode 755)
+- Localhost check already passed: `ssh -i /root/ci-deploy deploy@localhost` prints `deploy`
+- Workflow: `.github/workflows/deploy.yml` rsyncs `dist/` over SSH on push to `main`
+- Public site: `https://tobiasras.dk` and `https://www.tobiasras.dk` (both A records are `2.28.28.28`, DNS at dandomain.dk)
+- nginx serves `/srv/portfolio`. Site config: `deploy/nginx/portfolio.conf` on the server at `/etc/nginx/sites-available/portfolio`. Certbot manages the HTTPS server block and renewals. Keep port 80 open for renewal. `www-data` only needs read access; files stay owned by `deploy`.
+- Lab site: `https://lab.tobiasras.dk` (A record `2.28.28.28`). Files live in `/srv/creative-lab` with `creative/` and `projects/` directly inside that directory. nginx config: `deploy/nginx/lab.conf`, installed at `/etc/nginx/sites-available/lab`. Separate Certbot certificate from the apex domain.
+
+GitHub Actions secrets:
+
+| Secret | Value |
+| --- | --- |
+| `SSH_HOST` | `2.28.28.28` |
+| `SSH_USER` | `deploy` |
+| `SSH_PRIVATE_KEY` | contents of `/root/ci-deploy` |
+| `DEPLOY_PATH` | `/srv/portfolio/` |
+| `SSH_PORT` | `22` (optional) |
+
+Do not print or commit the private key. Prefer this key over generating a new one.

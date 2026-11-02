@@ -83,6 +83,26 @@ export function Home() {
                 </Container>
 
                 <Container className="grid items-start gap-4 md:grid-cols-2 lg:grid-cols-3">
+
+                <ProjectCard image="/images/cider_flow.png" title="Cider flow"
+                                 badges={["React", "Asp.net", "Docker"]}
+                                 url="https://brew.tobiasras.dk/"
+                                 category="A webapp for modeling cider brewing">
+                        <p>
+                            I made this app to plan and model my own cider brewing.
+                            With the app, I can add juices with different sugar contents and estimate
+                            how much alcohol will be produced, along with many other things.
+                        </p>
+                        <p className="pt-1">
+                            This helps me track decisions throughout the cider brewing process and
+                            allows me to readjust flavours for the following year.
+                        </p>
+                        <p className="pt-1">
+                            The app was built with React and C# ASP.NET. It supports multiple users
+                            who can sign up through Google Auth.
+                        </p>
+                    </ProjectCard>
+
                     <ProjectCard image="/images/shop_compare.png" title="Calculating Shopping Prices"
                                  badges={["SQL", "Kotlin", "Docker", "Rest API", "NLP"]}
                                  sourceUrl="https://github.com/tobiasras/shopping_list.git"
